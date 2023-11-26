@@ -33,13 +33,12 @@ async function openApp() {
         serverip: serverInfo.url,
         usedtls: false,
     });
-    window.location = `amongus://init?${params.toString()}`;
+    window.location = `amongus://init?servername=Modded_SA&serverport=22023&serverip=http%3A%2F%2F34.95.199.244&usedtls=false`;
 
     return false;
 }
 
 let currentPlatform;
-let httpsSetExplicitly = false;
 
 function setEnabled(platform, value) {
     for (const e of document.querySelectorAll(`.${platform}-support`)) {
@@ -63,10 +62,6 @@ const httpsRadio = document.getElementById("https");
 
 // Remove platform-specific conditions
 httpRadio.disabled = false;
-if (!httpsSetExplicitly) {
-    httpRadio.checked = true;
-    setPortIfDefault("http");
-}
 
     setEnabled(platform, true);
     document.getElementById(platform).classList.add("text-primary");
