@@ -1,4 +1,4 @@
-const DEFAULT_PORT_HTTP = "22000";
+const DEFAULT_PORT_HTTP = "22023";
 const DEFAULT_PORT_HTTPS = "443";
 
 /**
@@ -14,7 +14,7 @@ async function downloadAsync() {
 }
 
 async function openApp() {
-    window.location = "amongus://init?servername=Modded_SA&serverport=22023&serverip=http%3A%2F%2F34.95.199.244&usedtls=false";
+    window.location = 'amongus://init?servername=Modded_SA&serverport=22023&serverip=http%3A%2F%2F34.95.199.244&usedtls=false';
     return false;
 }
 
@@ -38,12 +38,6 @@ function setPlatform(platform) {
 }
 
 function setPortIfDefault(protocol) {
-    const oldPort = protocol === "http" ? DEFAULT_PORT_HTTPS : DEFAULT_PORT_HTTP;
-    const newPort = protocol === "http" ? DEFAULT_PORT_HTTP : DEFAULT_PORT_HTTPS;
-    const portField = document.getElementById("port");
-    if (portField.value === oldPort) {
-        portField.value = newPort;
-    }
 }
 
 /**
@@ -77,16 +71,6 @@ function generateRegionInfo(serverInfo) {
 }
 
 function saveFile(blob, fileName) {
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style.display = "none";
-    a.href = url;
-    a.download = fileName;
-    a.click();
-
-    URL.revokeObjectURL(url);
 }
 
 function fillFromLocationHash() {
