@@ -6,28 +6,15 @@ const DEFAULT_PORT_HTTPS = "443";
  * @returns {ServerInfo}
  */
 function parseForm() {
-    const address = document.getElementById("address").value.trim();
-    const port = parseInt(document.getElementById("port").value) ?? DEFAULT_PORT_HTTP;
-    const name = document.getElementById("name").value || "Impostor";
-    const protocol = document.querySelector("input[name=serverProtocol]:checked").value || "http";
-
-    return { address, port, name, protocol, url: `${protocol}://${address}` };
+    return false;
 }
 
 async function downloadAsync() {
-    const serverInfo = parseForm();
-
-    const json = generateRegionInfo(serverInfo);
-    const blob = new Blob([json], { type: "text/plain" });
-    saveFile(blob, "regionInfo.json");
-
     return false;
 }
 
 async function openApp() {
-    const serverInfo = parseForm();
     window.location = "amongus://init?servername=Modded_SA&serverport=22023&serverip=http%3A%2F%2F34.95.199.244&usedtls=false";
-
     return false;
 }
 
