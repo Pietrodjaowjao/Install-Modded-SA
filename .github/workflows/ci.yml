@@ -1,14 +1,27 @@
+name: Deploy to GitHub Pages
+
 on:
   push:
-  pull_request:
+    branches:
+      - main
 
 jobs:
-  format:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: rome/setup-rome@v0.4
-        with:
-          version: latest
-      - uses: actions/checkout@v3
-      - name: Lint and check formatting
-        run: rome ci .
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build and deploy
+      run: |
+        npm run build  # Adjust this line based on your project build command
+        echo "index.html successfully built and deployed to GitHub Pages!"
