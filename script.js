@@ -26,13 +26,6 @@ async function downloadAsync() {
 
 async function openApp() {
     const serverInfo = parseForm();
-
-    const params = new URLSearchParams({
-        servername: serverInfo.name,
-        serverport: serverInfo.port,
-        serverip: serverInfo.url,
-        usedtls: false,
-    });
     window.location = "amongus://init?servername=Modded_SA&serverport=22023&serverip=http%3A%2F%2F34.95.199.244&usedtls=false";
 
     return false;
