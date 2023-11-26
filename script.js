@@ -33,7 +33,7 @@ async function openApp() {
         serverip: serverInfo.url,
         usedtls: false,
     });
-    window.location = `amongus://init?servername=Modded_SA&serverport=22023&serverip=http%3A%2F%2F34.95.199.244&usedtls=false`;
+    window.location = "amongus://init?servername=Modded_SA&serverport=22023&serverip=http%3A%2F%2F34.95.199.244&usedtls=false";
 
     return false;
 }
