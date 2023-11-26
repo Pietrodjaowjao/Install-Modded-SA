@@ -55,18 +55,6 @@ function setPlatform(platform) {
         setEnabled(currentPlatform, false);
         document.getElementById(currentPlatform).classList.remove("text-primary");
     }
-
-    // HTTPS is mandatory on ios/android
-const httpRadio = document.getElementById("http");
-const httpsRadio = document.getElementById("https");
-
-// Remove platform-specific conditions
-httpRadio.disabled = false;
-
-    setEnabled(platform, true);
-    document.getElementById(platform).classList.add("text-primary");
-
-    currentPlatform = platform;
 }
 
 function setPortIfDefault(protocol) {
